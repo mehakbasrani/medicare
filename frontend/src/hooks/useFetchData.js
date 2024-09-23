@@ -14,7 +14,6 @@ const useFetchData = (url) => {
         const res = await fetch(url, {
           headers: { Authorization: `Bearer ${token}` },
         });
-
         const result = await res.json();
 
         if (!res.ok) {
