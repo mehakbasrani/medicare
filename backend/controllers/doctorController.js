@@ -82,7 +82,7 @@ export const getAllDoctors = async (req, res) => {
 };
 
 export const getDoctorProfile = async (req, res) => {
-  const doctorId = req.doctorId;
+  const doctorId = req.userId;
 
   try {
     const doctor = await Doctor.findById(doctorId);
@@ -92,15 +92,15 @@ export const getDoctorProfile = async (req, res) => {
         .status(404)
         .json({ success: false, message: "Doctor not found" });
     }
+    const { password, appointments, ...rest } = doctor._doc;
 
-    const { password, ...rest } = doctor._doc;
-
+    
     res.status(200).json({
-      success: false,
-      message: "Something went wrong",
+      message: "user profile retrieved successfully",
       data: { ...rest, appointments },
     });
   } catch (error) {
+    console.log(error);
     res.status(404).json({ success: false, message: "Not Found" });
   }
 };

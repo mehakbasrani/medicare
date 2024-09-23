@@ -69,7 +69,7 @@ export const getAllUsers = async (req, res) => {
 
 export const getUserProfile = async (req, res) => {
   const userId = req.userId;
-
+  // console.log("user" + userId);
   try {
     const user = await User.findById(userId);
 
@@ -82,10 +82,10 @@ export const getUserProfile = async (req, res) => {
     const { password, ...rest } = user._doc;
 
     res.status(200).json({
-      success: false,
-      message: "Something went wrong",
+      message: "user profile retrieved successfully",
       data: { ...rest },
     });
+    
   } catch (error) {
     res.status(404).json({ success: false, message: "Not Found" });
   }

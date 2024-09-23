@@ -30,7 +30,7 @@ const connectDB = async () => {
     });
     console.log("db connected");
   } catch (error) {
-    console.log("db connection failed");
+    console.log("db connection failed" + error);
   }
 };
 
