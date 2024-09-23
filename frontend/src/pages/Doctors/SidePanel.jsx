@@ -2,7 +2,6 @@ import React from "react";
 import convertTime from "../../utils/convertTime";
 
 function SidePanel({ doctorId, appointmentPrice, timeSlots }) {
-  console.log(appointmentPrice);
   return (
     <>
       <div className="shadow-panel Shadow p-3 lg:p-5 rounded-md ml-28">
